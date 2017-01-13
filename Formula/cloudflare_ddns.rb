@@ -18,6 +18,7 @@ class CloudflareDdns < Formula
   end
 
   test do
-    system bin/"cloudflare-ddns", "--help"
+    output = "An error occured when trying to create the Cloudflare api client: invalid credentials: key & email must not be empty"
+    assert_equal output, shell_output("#{bin}/cloudflare-ddns 2>&1", 1).strip
   end
 end
